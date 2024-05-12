@@ -14,7 +14,7 @@ const AlbumList: React.FC<AlbumListProps> = ({ procurar }) => {
 	const procurarAlbums = async (procurar: string) => {
 		try {
 			const resp = await albumApi.get(
-				`/albums/all?procurar=${procurar}`
+				`/albums/all?searchText=${procurar}`
 			);
 			setAlbums(resp.data);
 		} catch (error) {
