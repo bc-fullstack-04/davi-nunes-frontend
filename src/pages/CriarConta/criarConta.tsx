@@ -27,7 +27,7 @@ const CriarConta = () => {
 		}));
 	};
 
-	async function handleSignup(e: FormEvent) {
+	async function handleCadastrar(e: FormEvent) {
 		e.preventDefault();
 		setLoading(true);
 
@@ -63,7 +63,7 @@ const CriarConta = () => {
 						<h1 className="text-2xl font-bold">Criar Conta</h1>
 					</div>
 					<form
-						onSubmit={handleSignup}
+						onSubmit={handleCadastrar}
 						className="flex flex-col w-full"
 					>
 						<LabelInput

@@ -1,11 +1,11 @@
 import Banner from "@/components/banner";
-import Search from "@/components/search";
+import Procurar from "@/components/procurar";
 
 const Dashboard = () => {
 	return (
 		<div className="w-full h-screen flex flex-col">
 			<Banner />
-            <Search />
+            <Procurar />
 		</div>
 	);
 };

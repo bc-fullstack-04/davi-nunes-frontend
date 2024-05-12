@@ -4,35 +4,35 @@ import { albumApi } from "@/services/apiService";
 import AlbumModal from "./albumModal";
 
 interface AlbumListProps {
-	searchText: string;
+	procurar: string;
 }
 
-const AlbumList: React.FC<AlbumListProps> = ({ searchText }) => {
+const AlbumList: React.FC<AlbumListProps> = ({ procurar }) => {
 	const [albums, setAlbums] = useState<AlbumModel[]>([]);
-	const [selectedAlbum, setSelectedAlbum] = useState<AlbumModel | null>(null);
+	const [albumSelecionado, setAlbumSelecionado] = useState<AlbumModel | null>(null);
 
-	const searchAlbums = async (searchText: string) => {
+	const procurarAlbums = async (procurar: string) => {
 		try {
-			const response = await albumApi.get(
-				`/albums/all?searchText=${searchText}`
+			const resp = await albumApi.get(
+				`/albums/all?procurar=${procurar}`
 			);
-			setAlbums(response.data);
+			setAlbums(resp.data);
 		} catch (error) {
 			console.error("Erro ao carregar álbuns:", error);
 		}
 	};
 
 	const handleAlbumClick = (album: AlbumModel) => {
-		setSelectedAlbum(album);
+		setAlbumSelecionado(album);
 	};
 
 	const handleModalClose = () => {
-		setSelectedAlbum(null);
+		setAlbumSelecionado(null);
 	};
 
 	useEffect(() => {
-		searchAlbums(searchText);
-	}, [searchText]);
+		procurarAlbums(procurar);
+	}, [procurar]);
 
 return (
 	<div className="w-full flex flex-row flex-wrap justify-center">
@@ -61,8 +61,8 @@ return (
 				</div>
 			</div>
 		))}
-		{selectedAlbum && (
-			<AlbumModal album={selectedAlbum} onClose={handleModalClose} />
+		{albumSelecionado && (
+			<AlbumModal album={albumSelecionado} fechar={handleModalClose} />
 		)}
 	</div>
 );

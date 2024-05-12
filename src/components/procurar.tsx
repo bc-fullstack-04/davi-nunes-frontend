@@ -3,12 +3,12 @@ import { MagnifyingGlassIcon } from "@heroicons/react/24/outline";
 import Carousel from "./embla/carousel";
 import AlbumList from "./listaAlbums";
 
-const Search = () => {
-	const [searchText, setSearchText] = useState("");
+const Procurar = () => {
+	const [procurar, setProcurar] = useState("");
 	const [showCarousel, setShowCarousel] = useState(true);
 
 	const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		setSearchText(e.target.value);
+		setProcurar(e.target.value);
 		setShowCarousel(false);
 	};
 
@@ -19,7 +19,7 @@ const Search = () => {
 					type="text"
 					placeholder="Procurar Album"
 					className="w-[25%] ring-1 ring-zinc-400 h-8 px-2 text-zinc-500 rounded-sm bg-[#19181F]"
-					value={searchText}
+					value={procurar}
 					onChange={handleInputChange}
 				/>
 				<div className="ml-[-30px]">
@@ -32,10 +32,10 @@ const Search = () => {
 				</div>
 			)}
 			<div className="h-full overflow-y-auto">
-				<AlbumList searchText={searchText} />
+				<AlbumList procurar={procurar} />
 			</div>
 		</div>
 	);
 };
 
-export default Search;
+export default Procurar;

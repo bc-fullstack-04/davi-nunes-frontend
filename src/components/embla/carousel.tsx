@@ -8,7 +8,7 @@ import AlbumModal from "../albumModal";
 
 const EmblaCarousel = () => {
 	const [albums, setAlbums] = useState<AlbumModel[]>([]);
-	const [selectedAlbum, setSelectedAlbum] = useState<AlbumModel | null>(null);
+	const [albumSelecionado, setAlbumSelecionado] = useState<AlbumModel | null>(null);
 
 	useEffect(() => {
 		const generos = [
@@ -36,11 +36,11 @@ const EmblaCarousel = () => {
 	}, []);
 
 	function handleAlbumClick(album: AlbumModel) {
-		setSelectedAlbum(album);
+		setAlbumSelecionado(album);
 	}
 
-	function handleModalClose() {
-		setSelectedAlbum(null);
+	function fecharModal() {
+		setAlbumSelecionado(null);
 	}
 
 	const [emblaRef] = useEmblaCarousel({ loop: true }, [
@@ -80,8 +80,8 @@ const EmblaCarousel = () => {
 					))}
 				</div>
 			</div>
-			{selectedAlbum && (
-				<AlbumModal album={selectedAlbum} onClose={handleModalClose} />
+			{albumSelecionado && (
+				<AlbumModal album={albumSelecionado} fechar={fecharModal} />
 			)}
 		</div>
 	);

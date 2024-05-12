@@ -5,11 +5,11 @@ import { albumApi, userApi } from "@/services/apiService";
 
 interface Props {
 	album: AlbumModel;
-	onClose: () => void;
+	fechar: () => void;
 }
 
-const AlbumModal: React.FC<Props> = ({ album, onClose }) => {
-	const handleBuyClick = async () => {
+const AlbumModal: React.FC<Props> = ({ album, fechar }) => {
+	const handleComprar = async () => {
 		try {
 			const userData = localStorage.getItem("@Auth.Data");
 			if (!userData) {
@@ -35,7 +35,7 @@ const AlbumModal: React.FC<Props> = ({ album, onClose }) => {
 				userId: user.id,
 			});
 
-			onClose();
+			fechar();
 		} catch (error) {
 			console.error("Erro ao realizar compra:", error);
 		}
@@ -46,7 +46,7 @@ const AlbumModal: React.FC<Props> = ({ album, onClose }) => {
 			<div className="bg-white p-8 rounded-lg max-w-md">
 				<div className="flex justify-between items-center mb-4">
 					<h2 className="text-2xl font-semibold">{album.name}</h2>
-					<button className="text-gray-500" onClick={onClose}>
+					<button className="text-gray-500" onClick={fechar}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-6 w-6"
@@ -88,7 +88,7 @@ const AlbumModal: React.FC<Props> = ({ album, onClose }) => {
 							Lanç.: {album.releaseDate}
 						</p>
 						<Button
-							onClick={handleBuyClick}
+							onClick={handleComprar}
 							className="bg-[#FBBC05] w-full text-white px-4 py-2 mt-4 rounded-3xl"
 						>
 							Comprar
