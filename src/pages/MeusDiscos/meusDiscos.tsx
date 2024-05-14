@@ -29,14 +29,14 @@ const MeusDiscos: React.FC = () => {
 	}, []);
 
 	return (
-		<div className="h-screen flex flex-col bg-[#19181F]">
+		<div className="h-full flex flex-col bg-[#19181F]">
 			<Header />
-			<div className="flex flex-col mt-28 m-10">
-				<h1 className="text-white text-4xl font-semibold mb-6">
+			<div className="flex flex-col mt-28 mx-4 md:mx-10">
+				<h1 className="text-white text-2xl md:text-4xl font-semibold mb-6">
 					Meus Discos
 				</h1>
-				<div className="flex">
-					<div className="flex items-center bg-white p-4 rounded-md shadow-md mr-4">
+				<div className="flex flex-col md:flex-row mb-6">
+					<div className="flex items-center bg-white p-4 rounded-md shadow-md mb-4 md:mb-0 md:mr-4 w-full md:w-auto">
 						<div className="mr-2">
 							<PlayCircleIcon className="h-10 w-10 text-gray-600" />
 						</div>
@@ -47,7 +47,7 @@ const MeusDiscos: React.FC = () => {
 							<p className="text-gray-600">{albums.length}</p>
 						</div>
 					</div>
-					<div className="flex items-center bg-white p-4 rounded-md shadow-md">
+					<div className="flex items-center bg-white p-4 rounded-md shadow-md w-full md:w-auto">
 						<div className="mr-2">
 							<CurrencyDollarIcon className="h-10 w-10 text-gray-600" />
 						</div>
@@ -68,10 +68,10 @@ const MeusDiscos: React.FC = () => {
 						</div>
 					</div>
 				</div>
-				<div className="flex flex-wrap justify-center ">
+				<div className="flex flex-wrap justify-center">
 					{albums.map((album) => (
 						<div
-							className="max-w-[210px] mx-3 my-4 cursor-pointer overflow-hidden"
+							className="max-w-[150px] sm:max-w-[180px] md:max-w-[210px] mx-3 my-4 cursor-pointer overflow-hidden"
 							key={album.id}
 							onClick={() => handleAlbumClick(album)}
 						>
@@ -81,13 +81,13 @@ const MeusDiscos: React.FC = () => {
 									alt={album.name}
 									className="w-full rounded-lg"
 								/>
-								<div className="absolute inset-0 flex justify-center items-center text-white">
-									<h3 className="text-2xl font-bold leading-tight tracking-tight text-center">
+								<div className="absolute inset-0 flex justify-center items-center text-white bg-black bg-opacity-50">
+									<h3 className="text-sm md:text-2xl font-bold leading-tight tracking-tight text-center px-2">
 										{album.name}
 									</h3>
 								</div>
-								<div className="absolute bottom-0 right-0 p-4 bg-black bg-opacity-50 rounded-tl-lg rounded-br-lg">
-									<p className="text-lg font-semibold text-white">
+								<div className="absolute bottom-0 right-0 p-2 bg-black bg-opacity-50 rounded-tl-lg rounded-br-lg">
+									<p className="text-xs md:text-lg font-semibold text-white">
 										R$ {album.value}
 									</p>
 								</div>

@@ -38,11 +38,11 @@ const Procurar = () => {
 				showCarousel ? "overflow-hidden" : ""
 			}`}
 		>
-			<form className="flex flex-row justify-center items-center mb-5">
+			<form className="flex flex-row justify-center items-center mb-5 px-4 sm:px-8 lg:px-16">
 				<input
 					type="text"
 					placeholder="Procurar Álbum"
-					className="w-[25%] ring-1 ring-zinc-400 h-8 px-2 text-zinc-500 rounded-sm bg-[#19181F]"
+					className="w-full sm:w-[50%] lg:w-[25%] ring-1 ring-zinc-400 h-8 px-2 text-zinc-500 rounded-sm bg-[#19181F]"
 					value={procurar}
 					onChange={handleInputChange}
 				/>
@@ -50,17 +50,12 @@ const Procurar = () => {
 					<MagnifyingGlassIcon className="h-6 w-6 text-white" />
 				</div>
 			</form>
-			{showCarousel && (
-				<div className="h-full overflow-hidden">
+			{showCarousel ? (
+				<div className="flex-1 overflow-hidden">
 					<Carousel />
 				</div>
-			)}
-			{!showCarousel && (
-				<div
-					className={`h-full overflow-y-auto ${
-						showCarousel ? "hidden" : ""
-					}`}
-				>
+			) : (
+				<div className="flex-1 overflow-y-auto">
 					<AlbumList albums={albums} />
 				</div>
 			)}
