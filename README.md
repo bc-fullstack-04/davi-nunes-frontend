@@ -1,8 +1,8 @@
 # BootPlay - Loja Virtual de Discos
 
-BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, fazer login, comprar discos, visualizar sua coleção de álbuns e excluir álbuns da coleção. O projeto é desenvolvido utilizando Vite, React com TypeScript e uma variedade de recursos de terceiros para melhorar a experiência do usuário.
+BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, fazer login, comprar discos, visualizar sua coleção de álbuns e excluir álbuns da coleção. O projeto é desenvolvido utilizando Vite, React com TypeScript e uma variedade de recursos de terceiros para melhorar a experiência do usuário, e um layout totalmente responsivo.
 
-## Funcionalidades Ativas
+## Funcionalidades Ativas:
 
 - **Cadastro:** Os usuários podem se cadastrar na plataforma fornecendo informações básicas.
 - **Login:** Os usuários podem fazer login em suas contas utilizando credenciais válidas.
@@ -10,7 +10,7 @@ BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, f
 - **Coleção de Álbuns:** Os usuários têm uma coleção de álbuns onde podem visualizar os álbuns comprados.
 - **Deleção de Álbuns:** Os usuários podem excluir álbuns de sua coleção.
 
-## Desenvolvido Com
+## Desenvolvido Com:
 
 - **Vite:** Um construtor de projetos web rápido e simples.
 - **React com TypeScript:** Uma biblioteca JavaScript para construir interfaces de usuário.
@@ -25,7 +25,7 @@ BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, f
 
 ## Como Rodar o Projeto
 
-1. Execute o Docker para criar as imagens do backend necessário para rodar a aplicação.
+1. Execute o Docker-Compose para criar as imagens do back-end necessário para rodar a aplicação.
 2. Execute `npm install` para instalar as dependências do projeto.
 3. Execute `npm run dev` para iniciar o servidor de desenvolvimento e visualizar o projeto no navegador.
 
