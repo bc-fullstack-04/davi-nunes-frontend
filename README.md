@@ -1,5 +1,3 @@
-Claro, aqui está o README.md atualizado com os links para os recursos utilizados:
-
 # BootPlay - Loja Virtual de Discos
 
 BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, fazer login, comprar discos, visualizar sua coleção de álbuns e excluir álbuns da coleção. O projeto é desenvolvido utilizando Vite, React com TypeScript e uma variedade de recursos de terceiros para melhorar a experiência do usuário.
