@@ -3,7 +3,7 @@ import Procurar from "@/components/procurar";
 
 const Dashboard = () => {
 	return (
-		<div className="w-full h-screen flex flex-col">
+		<div className="w-full h-full flex flex-col">
 			<Banner />
             <Procurar />
 		</div>

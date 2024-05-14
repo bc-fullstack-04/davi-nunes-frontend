@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { userApi } from "@/services/apiService";
 import { FormEvent, useState, ChangeEvent } from "react";
 import { ArrowPathIcon } from "@heroicons/react/24/outline";
-import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/hooks/useAuth";
 
 const CriarConta = () => {
@@ -17,7 +16,6 @@ const CriarConta = () => {
 	});
 	const [loading, setLoading] = useState(false);
 	const { login } = useAuth();
-	const _navigate = useNavigate();
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
 		const { name, value } = e.target;
@@ -32,13 +30,14 @@ const CriarConta = () => {
 		setLoading(true);
 
 		try {
-			await userApi.post("/users/create", formData);
-			toast.success("Usuário cadastrado com sucesso!");
-			login(formData.email, formData.password)
+			await userApi
+				.post("/users/create", formData)
 				.then(() => {
-					toast.success("Login efetuado com sucesso!");
+					toast.success(
+						"Usuário cadastrado com sucesso! \nAguarde o Redirecionamento"
+					);
 					setTimeout(() => {
-						_navigate("/dashBoard");
+						login(formData.email, formData.password);
 					}, 2000);
 				})
 				.catch(() => {

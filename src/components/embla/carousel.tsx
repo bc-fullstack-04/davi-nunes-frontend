@@ -8,31 +8,35 @@ import AlbumModal from "../albumModal";
 
 const EmblaCarousel = () => {
 	const [albums, setAlbums] = useState<AlbumModel[]>([]);
-	const [albumSelecionado, setAlbumSelecionado] = useState<AlbumModel | null>(null);
+	const [albumSelecionado, setAlbumSelecionado] = useState<AlbumModel | null>(
+		null
+	);
 
 	useEffect(() => {
-		const generos = [
-			"Forró",
-			"Rock",
-			"Celtic",
-			"Boleros",
-			"Jazz",
-			"Reggae",
-			"Hip Hop",
-			"Samba",
-		];
-
-		const generosAleatorios =
-			generos[Math.floor(Math.random() * generos.length)];
-		albumApi
-			.get(`/albums/all?searchText=${generosAleatorios}`)
-			.then((resp) => {
-				setAlbums(resp.data);
-			})
-			.catch((error) => {
+		const carregarAlbums = async () => {
+			try {
+				const generos = [
+					"Forró",
+					"Rock",
+					"Celtic",
+					"Boleros",
+					"Jazz",
+					"Reggae",
+					"Hip Hop",
+					"Samba",
+				];
+				const generosAleatorios =
+					generos[Math.floor(Math.random() * generos.length) - 1];
+				const response = await albumApi.get(
+					`/albums/all?searchText=${generosAleatorios}`
+				);
+				setAlbums(response.data);
+			} catch (error) {
 				console.error("Erro ao carregar álbuns:", error);
-			});
+			}
+		};
 
+		carregarAlbums();
 	}, []);
 
 	function handleAlbumClick(album: AlbumModel) {
@@ -71,8 +75,8 @@ const EmblaCarousel = () => {
 									{album.name}
 								</h3>
 							</div>
-							<div className="absolute bottom-0 right-0 p-4">
-								<p className="text-2xl font-semibold text-white">
+							<div className="absolute bottom-0 right-0 p-4 bg-black bg-opacity-50 rounded-tl-lg rounded-br-lg">
+								<p className="text-1xl font-semibold text-white">
 									R$ {album.value}
 								</p>
 							</div>

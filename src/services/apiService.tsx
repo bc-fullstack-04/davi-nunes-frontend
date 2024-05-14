@@ -7,4 +7,3 @@ export const userApi = axios.create({
 export const albumApi = axios.create({
 	baseURL: "http://localhost:8082/api",
 });
-

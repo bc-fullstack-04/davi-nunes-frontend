@@ -39,6 +39,7 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
 					password,
 				});
 				const { data } = respAuth;
+				toast.success("Login efetuado com sucesso!"); 
 
 				localStorage.setItem("@Auth.Token", JSON.stringify(data.token));
 				userApi.defaults.headers.common.Authorization = `Basic ${data.token}`;
@@ -50,7 +51,6 @@ export const AuthProvider: React.FC<Props> = ({ children }) => {
 				localStorage.setItem("@Auth.Data", JSON.stringify(userData));
 				setUserData(userData);
 				setIsAuthenticated(true);
-				toast.success("Login efetuado com sucesso!"); 
 			} catch (error) {
 				toast.error("Erro ao efetuar login!");
 				return (error as Error).message;

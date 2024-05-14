@@ -1,30 +1,34 @@
-# React + TypeScript + Vite
+Claro, aqui está o README.md atualizado com os links para os recursos utilizados:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# BootPlay - Loja Virtual de Discos
 
-Currently, two official plugins are available:
+BootPlay é uma loja virtual de discos que permite aos usuários cadastrar-se, fazer login, comprar discos, visualizar sua coleção de álbuns e excluir álbuns da coleção. O projeto é desenvolvido utilizando Vite, React com TypeScript e uma variedade de recursos de terceiros para melhorar a experiência do usuário.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Funcionalidades Ativas
 
-## Expanding the ESLint configuration
+- **Cadastro:** Os usuários podem se cadastrar na plataforma fornecendo informações básicas.
+- **Login:** Os usuários podem fazer login em suas contas utilizando credenciais válidas.
+- **Compra:** Os usuários podem navegar pela loja e comprar discos disponíveis.
+- **Coleção de Álbuns:** Os usuários têm uma coleção de álbuns onde podem visualizar os álbuns comprados.
+- **Deleção de Álbuns:** Os usuários podem excluir álbuns de sua coleção.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Desenvolvido Com
 
-- Configure the top-level `parserOptions` property like this:
+- **Vite:** Um construtor de projetos web rápido e simples.
+- **React com TypeScript:** Uma biblioteca JavaScript para construir interfaces de usuário.
+  
+## Recursos Utilizados
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- **Tailwind CSS:** Um framework CSS utilitário para criar designs customizáveis rapidamente. Link: [Tailwind CSS](https://tailwindcss.com/)
+- **Shadcn:** Uma biblioteca de componentes UI elegantes para React. Link: [Shadcn](https://ui.shadcn.com/)
+- **Embla Carousel:** Uma biblioteca JavaScript para criar carrosséis responsivos e acessíveis. Link: [Embla Carousel](https://www.embla-carousel.com/)
+- **React Hot Toast:** Uma biblioteca para exibir notificações de toast em React.  Link: [React Hot Toast](https://react-hot-toast.com/)
+- **HeroIcons:** Uma coleção gratuita de ícones SVG customizáveis e acessíveis. Link: [HeroIcons](https://heroicons.com/)
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Como Rodar o Projeto
+
+1. Execute o Docker para criar as imagens do backend necessário para rodar a aplicação.
+2. Execute `npm install` para instalar as dependências do projeto.
+3. Execute `npm run dev` para iniciar o servidor de desenvolvimento e visualizar o projeto no navegador.
+
+Agora você pode acessar a loja virtual BootPlay e explorar todas as funcionalidades disponíveis!

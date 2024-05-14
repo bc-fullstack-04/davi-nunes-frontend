@@ -1,7 +1,7 @@
 import React from "react";
 import { AlbumModel } from "@/models/AlbumModel";
 import { Button } from "./ui/button";
-import { userApi } from "@/services/apiService";
+import { albumApi } from "@/services/apiService";
 import toast from "react-hot-toast";
 
 interface Props {
@@ -12,29 +12,17 @@ interface Props {
 const AlbumModal: React.FC<Props> = ({ album, fechar }) => {
 	const handleComprar = async () => {
 		try {
-			const userData = localStorage.getItem("@Auth.Data");
-			if (!userData) {
-				throw new Error("Usuário não está logado");
-			}
-			// const user = JSON.parse(userData);
 
-			// const purchaseData = {
-			// 	name: album.name,
-			// 	idSpotify: album.id,
-			// 	artistName: album.artists[0].name, //Um artista apenas
-			// 	imageUrl: album.images[0].url,
-			// 	value: album.value,
-			// 	users: {
-			// 		id: user.id,
-			// 		email: user.email,
-			// 		password: user.password,
-			// 	},
-			// };
-			// await albumApi.post("/albums/sale", purchaseData);
+			const dadosDaCompra = {
+				name: album.name,
+				idSpotify: album.id,
+				artistName: album.artists[0].name,
+				imageUrl: album.images[0].url,
+				value: album.value
+			};
 
-			await userApi.post(
-				`/wallet/credit/-${album.value.toString().split(".")[0]}`
-			);
+			await albumApi.post("/albums/sale", dadosDaCompra);
+			
 			toast.success("Compra Realizada")
 			fechar();
 		} catch (error) {
@@ -77,7 +65,7 @@ const AlbumModal: React.FC<Props> = ({ album, fechar }) => {
 							className="w-48 h-48 mr-8 rounded-lg cursor-pointer"
 						/>
 					</a>
-					<div>
+					<div className="">
 						<p className="text-gray-600 mt-2">
 							{album.artists
 								.map((artist) => artist.name)

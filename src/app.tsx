@@ -5,6 +5,7 @@ import Login from "./pages/Login/login";
 import CriarConta from "./pages/CriarConta/criarConta";
 import Inicio from "./pages/Inicio/inicio";
 import Dashboard from "./pages/Dashboard/dashboard";
+import MeusDiscos from "./pages/MeusDiscos/meusDiscos";
 import { PrivateRoutes } from "./utils/PrivateRoutes";
 
 export default function App() {
@@ -29,6 +30,7 @@ export default function App() {
 					)
 				}
 			/>
+			
 
 			<Route
 				path=""
@@ -41,6 +43,7 @@ export default function App() {
 				}
 			>
 				<Route path="/dashboard" element={<Dashboard />} />
+				<Route path="/meusdiscos" element={<MeusDiscos />} />
 			</Route>
 		</Routes>
 	);
